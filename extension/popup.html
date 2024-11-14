@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="loading">
+    <main>
+        <div id="landing_wrapper" class="text-center">
+            <!-- Logo -->
+            <img width="100" height="100" class="logo" src="assets/logo.png" alt="PhishShield">
+            <div class="success-message-container">
+                <h1 class="text-center">Safe Site</h1>
+                <p class="text-left">"This website has been verified as secure. You may proceed with confidence."</p>
+            </div>
+            <div class="alert-message-container">
+                <h1 class="text-center">Alert!</h1>
+                <p class="text-left">"This website is marked as suspicious. Proceeding may be risky. Continue or exit to
+                    stay safe."</p>
+            </div>
+            <div class="default-container">
+                <p>"Are you sure you want to report this website? Please confirm if you believe
+                    this site may be harmful or suspicious."</p>
+                <button id="report_site" class="btn danger-btn w-100">
+                    REPORT
+                </button>
+            </div>
+        </div>
+    </main>
+    <div id="loader">
+        <img width="100" height="100" class="logo" src="assets/logo.png" alt="PhishShield">
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>

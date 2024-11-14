@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #013692;
+    --danger-color: #FEB1B1;
+    --success-color: #9dcd5a;
+    --text-color: #020202;
+    --alert-color: #faa94a;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 250px;
+    font-family: "Archivo Black", sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--text-color);
+    min-height: 211px;
+}
+
+body.safe-website {
+    background-color: var(--success-color);
+}
+
+body.suspicious-website {
+    background-color: var(--alert-color);
+}
+
+body:not(.safe-website, .suspicious-website) #landing_wrapper>div:not(.default-container) {
+    display: none;
+}
+
+body.safe-website #landing_wrapper>div:not(.success-message-container) {
+    display: none;
+}
+
+body.loading #landing_wrapper>div {
+    display: none;
+}
+
+body.suspicious-website #landing_wrapper>div:not(.alert-message-container) {
+    display: none;
+}
+
+h1 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+main {
+    padding: 20px;
+}
+
+main>div>*:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+main .logo {
+    display: inline !important;
+    object-fit: contain;
+}
+
+.btn {
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #eee;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    cursor: pointer;
+    margin-top: 15px;
+    font-family: inherit;
+}
+
+.btn[disabled] {
+    pointer-events: none;
+    background: #a9a9a9 !important;
+}
+
+
+.danger-btn {
+    background-color: var(--danger-color);
+}
+
+#loader {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background-color: #fff;
+}
+
+#loader:before {
+    content: '';
+    position: absolute;
+    border-radius: 100%;
+    border: 5px solid #22A2FB;
+    border-top-color: transparent;
+    width: 50%;
+    aspect-ratio: 1/1;
+    animation: spin 2s linear infinite;
+}
+
+#loader img {
+    object-fit: contain;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
