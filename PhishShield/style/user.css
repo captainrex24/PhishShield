@@ -1,0 +1,251 @@
+:root {
+    --primary-color: #001f3f;
+    --primary-30: hsla(210, 100%, 12%, 0.3);
+    --primary-50: rgba(0, 31, 63, 0.50);
+    --text-color: #020202;
+    --green-color: #008000;
+    --yellow-color: #ffb600;
+    --red-color: #ff0000;
+}
+
+#response small {
+    text-align: left;
+}
+
+.primary-button,
+.navigation-button.active {
+    padding: 10px 15px;
+    background-color: var(--primary-50);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.navigation-button {
+    padding: 10px 15px;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-transform: none !important;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: block;
+}
+
+input,
+textarea {
+    padding: 10px 15px;
+    background-color: var(--primary-50);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    border: none;
+    outline: none;
+    display: block;
+    width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-color);
+}
+
+#response {
+    padding: 10px 15px;
+    background-color: var(--primary-30);
+    color: var(--text-color);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-align: center;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+
+#response.green-alert {
+    background-color: var(--green-color);
+    color: #fff;
+}
+
+#response.yellow-alert {
+    background-color: var(--yellow-color);
+}
+
+#response.red-alert {
+    background-color: var(--red-color);
+    color: #fff;
+}
+
+.green-alert {
+    color: var(--green-color);
+}
+
+.yellow-alert {
+    color: #ffb600;
+}
+
+.red-alert {
+    color: #ff0000;
+}
+
+
+.toast {
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999999999;
+}
+
+.error {
+    background-color: var(--red-color);
+    color: #fff;
+    text-align: center;
+    width: fit-content;
+}
+
+.success {
+    background-color: var(--green-color);
+    color: #fff;
+    text-align: center;
+    width: fit-content;
+}
+
+.password-eye,
+.password-eye-off {
+    top: 6px;
+    right: 10px
+}
+
+span.stars {
+    width: 150px;
+    display: inline-block;
+    height: 30px;
+    background-color: var(--bs-gray-500);
+    -webkit-mask-image: url(http://localhost/phishshield/assets/stars.png);
+    mask-image: url(http://localhost/phishshield/assets/stars.png);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    margin-bottom: -2px;
+}
+
+
+
+span.stars::before {
+    content: '';
+    width: var(--rate);
+    height: 100%;
+    background-color: var(--bs-blue);
+    display: block;
+}
+
+label {
+    font-size: 25px;
+}
+
+.radius-0 {
+    border-radius: 0;
+}
+
+.form-wrapper {
+    background-color: var(--primary-50);
+}
+
+.form-wrapper [type=submit] {
+    font-size: 30px;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #001f3f;
+}
+
+.reviews .swiper-slide {
+    background-color: var(--primary-50);
+}
+
+
+
+.review-stars {
+    color: #ffb600;
+    width: 100%;
+}
+
+.review-stars div {
+    font-size: 3.438rem;
+}
+
+#rating .form-check {
+    padding: 0;
+}
+
+#rating .form-check span {
+    color: #ffb600;
+    font-size: 3.438rem;
+    line-height: 1;
+}
+
+#rating .form-check:has(~.form-check input:checked) .star-filled {
+    display: block !important;
+}
+
+#rating .form-check:has(~.form-check input:checked) .star-outline {
+    display: none !important;
+}
+
+#rating [name="rating"]:checked+.form-check-label .star-filled {
+    display: block !important;
+}
+
+#rating [name="rating"]:not(:checked)+.form-check-label .star-outline {
+    display: block !important;
+}
+
+#sidebar {
+    background-color: var(--primary-50);
+}
+
+.profile-picture {
+    border: 10px solid var(--primary-color) !important;
+}
+
+.edit-button {
+    float: right;
+    aspect-ratio: 1/1;
+    line-height: 1.3em;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.bg-primary-50 {
+    background-color: var(--primary-50);
+}
+
+a#dropdownUser2:after {
+    display: none;
+}
+
+a#dropdownUser2 img {
+    border: 3px solid var(--primary-color) !important;
+}
+
+
+#report_list {
+    padding: 0;
+}
+
+/* #report_list .row div:first-child {
+    background-color: red;
+} */
+
+#report_list p {
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--primary-color);
+}

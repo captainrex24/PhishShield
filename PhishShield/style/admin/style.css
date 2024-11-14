@@ -1,0 +1,229 @@
+:root {
+    --primary-color: #001f3f;
+    --primary-50: rgba(0, 31, 63, 0.50);
+    --text-color: #020202;
+    --green-color: #008000;
+    --yellow-color: #ffb600;
+    --red-color: #ff0000;
+}
+
+#response small {
+    text-align: left;
+}
+
+.primary-button,
+.navigation-button.active {
+    padding: 10px 15px;
+    background-color: var(--primary-50);
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.navigation-button {
+    padding: 10px 15px;
+    color: var(--text-color);
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+    text-transform: none !important;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: block;
+}
+
+.edit-button {
+    font-size: 1.5rem !important;
+    float: right;
+    aspect-ratio: 1/1;
+    line-height: 1.3em;
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+label {
+    font-size: 1.25rem;
+}
+
+input,
+textarea,
+select {
+    padding: 10px 15px;
+    background-color: var(--primary-50);
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.2;
+    border: none;
+    outline: none;
+    display: block;
+    width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-color);
+}
+
+.modal input,
+.modal select {
+    border: 2px solid var(--primary-color);
+}
+
+.radius-0 {
+    border-radius: 0;
+}
+
+.form-wrapper {
+    background-color: var(--primary-50);
+}
+
+.form-wrapper [type=submit] {
+    font-size: 30px;
+}
+
+.bg-primary-100 {
+    background-color: var(--primary-color);
+}
+
+.bg-primary-50 {
+    background-color: var(--primary-50);
+}
+
+a#dropdownUser:after {
+    display: none;
+}
+
+a#dropdownUser img {
+    border: 3px solid var(--primary-color) !important;
+}
+
+.profile-picture {
+    border: 10px solid var(--primary-color) !important;
+}
+
+thead th {
+    text-transform: uppercase;
+    text-align: center;
+    background-color: transparent !important;
+    padding: 10px !important;
+    border: none !important;
+    pointer-events: none;
+}
+
+.dt-column-order {
+    display: none !important;
+}
+
+table {
+    border-spacing: 10px !important;
+    border-collapse: separate !important;
+}
+
+thead th span {
+    display: block;
+    text-align: center;
+}
+
+tbody td {
+    text-align: center;
+    background-color: var(--primary-50) !important;
+    box-shadow: none !important;
+    font-size: 15px;
+}
+
+tbody td,
+tbody td * {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+table td a {
+    max-width: 30vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    margin: 0;
+}
+
+table td {
+    vertical-align: middle;
+}
+
+tfoot {
+    display: none;
+}
+
+[name="data_table_length"] {
+    width: auto;
+}
+
+div.dt-processing>div:last-child>div {
+    background-color: var(--primary-color);
+}
+
+.error {
+    background-color: var(--red-color);
+    color: #fff;
+    text-align: center;
+    width: fit-content;
+}
+
+div.dt-container .dt-paging .dt-paging-button,
+div.dt-container .dt-paging .dt-paging-button:hover,
+div.dt-container .dt-paging .dt-paging-button:active {
+    background: none !important;
+    color: #000 !important;
+    border-color: transparent;
+    box-shadow: unset;
+}
+
+div.dt-container .dt-paging .dt-paging-button.disabled,
+div.dt-container .dt-paging .dt-paging-button.disabled:hover,
+div.dt-container .dt-paging .dt-paging-button.disabled:active {
+    color: rgba(0, 0, 0, 0.25) !important;
+}
+
+
+
+
+.dt-length,
+.dt-search {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.dt-length label,
+.dt-search label,
+.dt-search input {
+    margin: 0;
+}
+
+.module-permissions {
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.module-permissions label {
+    font-weight: bold;
+}
+
+.toast {
+    bottom: 20px;
+    right: 20px;
+    z-index: 999999999999;
+}
+
+.password-eye,
+.password-eye-off {
+    top: 6px;
+    right: 10px
+}

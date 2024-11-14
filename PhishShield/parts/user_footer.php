@@ -1,0 +1,1 @@
+<footer class="flex-shrink-0 p-3 bg-white text-center">© <?php echo date('Y') ?> · Phishshield</footer>

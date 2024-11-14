@@ -1,0 +1,185 @@
+:root {
+    --primary-color: #013692;
+    --gray-color: #A9A9A9;
+    --white-smoke-color: #F5F5F5;
+    --oxford-blue-color: #212A37;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Roboto';
+    background-color: var(--white-smoke-color);
+    color: var(--oxford-blue-color);
+}
+
+h1 {
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input {
+    font-family: 'Roboto';
+    font-size: inherit;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid var(--oxford-blue-color);
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: var(--gray-color);
+}
+
+input:focus {
+    border: 1px solid var(--primary-color);
+}
+
+.flex {
+    display: flex;
+}
+
+.hide {
+    display: none !important;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.btn {
+    font-family: 'Roboto';
+    font-size: inherit;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 0 20px #eee;
+    padding: 15px 45px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn[disabled] {
+    pointer-events: none;
+    background: #a9a9a9 !important;
+}
+
+.primary-btn {
+    background-image: linear-gradient(to right, var(--primary-color) 0%, #7BA6EA 51%, var(--primary-color) 100%);
+}
+
+.primary-btn:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.danger-btn {
+    background-image: linear-gradient(to right, var(--danger-color) 0%, #F45C43 51%, var(--danger-color) 100%);
+}
+
+.danger-btn:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.plain-btn {
+    text-transform: uppercase;
+    color: var(--primary-color);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Login Form */
+#login {
+    padding: 40px 20px;
+    max-width: 425px;
+    margin: 20vh auto 0 auto;
+    box-shadow: 0 6px 6px #00000023;
+    border-radius: 10px;
+    background-color: #FFF;
+}
+
+#login .logo-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#login .logo {
+    max-width: 200px;
+    width: 100%;
+}
+
+/* Scanner Form */
+#scanner-form {
+    padding: 40px 20px;
+    max-width: 768px;
+    margin: 20vh auto 0 auto;
+    border-radius: 10px;
+}
+
+#scanner-form .logo-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#scanner-form .logo {
+    max-width: 200px;
+    width: 100%;
+}
+
+#scanner-form input {
+    margin: 0;
+}
+
+#scanner-form .scanner-input {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+}
+
+.error {
+    color: rgb(220, 53, 69);
+    text-align: center;
+    margin-bottom: 20px;
+}

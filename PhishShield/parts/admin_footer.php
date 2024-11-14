@@ -1,0 +1,1 @@
+<footer aria-label="Page Footer" class="flex-shrink-0 p-3">© <?php echo date('Y') ?> · Phishshield</footer>
