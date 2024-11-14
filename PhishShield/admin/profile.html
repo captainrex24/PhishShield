@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="/style/style.css">
+    <style>
+        body {
+            background-color: #F0F2F9;
+        }
+
+        #content header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dt-length,
+        .dt-search {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .dt-length label,
+        .dt-search label,
+        .dt-search input {
+            margin: 0;
+        }
+
+        .module-permissions {
+            margin-bottom: 15px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .module-permissions label {
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="sidebar" class="col-2 min-vh-100 d-flex flex-column flex-shrink-0 p-3 bg-light">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 mx-md-auto text-decoration-none">
+                    <img height="100" width="114" class="logo" src="/assets/logo.png" alt="Logo">
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li>
+                        <a href="index.html" class="nav-link link-dark">
+                            <i class="bi bi-speedometer2 me-2"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html" class="nav-link link-dark">
+                            <i class="bi bi-list-ul me-2"></i>
+                            Reports
+                        </a>
+                    </li>
+                    <li>
+                        <a href="allowlist.html" class="nav-link link-dark">
+                            <i class="bi bi-database-check me-2"></i>
+                            Allowlist
+                        </a>
+                    </li>
+                    <li>
+                        <a href="blocklist.html" class="nav-link link-dark">
+                            <i class="bi bi-database-x me-2"></i>
+                            Blocklist
+                        </a>
+                    </li>
+                    <li>
+                        <a href="users.html" class="nav-link link-dark">
+                            <i class="bi bi-people me-2"></i>
+                            Users
+                        </a>
+                    </li>
+                    <li>
+                        <a href="roles.html" class="nav-link link-dark">
+                            <i class="bi bi-person-fill-gear me-2"></i>
+                            Roles
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="content" class="col-10 min-vh-100 d-flex flex-column">
+                <header aria-label="Page Header" class="flex-shrink-0 p-3">
+                    <h1>Profile</h1>
+                    <div class="user">
+                        <div class="dropdown">
+                            <a href="#" class="d-flex align-items-center text-decoration-none link-dark dropdown-toggle"
+                                id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/assets/user.png" alt="" width="25" height="25" class="rounded-circle me-2">
+                                <strong>Hello, User</strong>
+                            </a>
+                            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+                <main class="p-3 flex-grow-1">
+                    <div class="row">
+                        <div class="col">
+
+                            <!-- Start Profile Card -->
+                            <form id="profileForm" class="d-none">
+
+                                <button type="button" class="btn btn-primary" style="float: right"
+                                    data-tippy-content="Edit">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+
+                                <div class="mb-3">
+                                    <img src="/assets/user.png" alt="Profile" width="150" height="150"
+                                        class="rounded-circle me-2 border border-5 border-secondary">
+                                </div>
+
+                                <div class="row">
+                                    <!-- First Name -->
+                                    <div class="col-4 mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" name="first_name"
+                                            value="John" required disabled>
+                                    </div>
+
+                                    <!-- Middle Name -->
+                                    <div class="col-4 mb-3">
+                                        <label for="middleName" class="form-label">Middle Name</label>
+                                        <input type="text" class="form-control" id="middleName" name="middle_name"
+                                            value="Santos" disabled>
+                                    </div>
+
+                                    <!-- Last Name -->
+                                    <div class="col-4 mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" name="last_name"
+                                            value="Smith" required disabled>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row">
+                                    <!-- Contact Number -->
+                                    <div class="col-6 mb-3">
+                                        <label for="contactNumber" class="form-label">Contact Number</label>
+                                        <input type="text" class="form-control" id="contactNumber" name="contact_number"
+                                            value="9123456789" required disabled>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="col-6 mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            value="john@example.com" required disabled>
+                                    </div>
+                                </div>
+
+                                <!-- Username -->
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username"
+                                        value="john_smith" required disabled>
+                                </div>
+
+                                <!-- Display Name -->
+                                <div class="mb-3">
+                                    <label for="displayName" class="form-label">Display Name</label>
+                                    <input type="text" class="form-control" id="displayName" name="display_name"
+                                        value="User" required disabled>
+                                </div>
+
+                                <!-- Role (Cannot be edited) -->
+                                <div class="mb-3">
+                                    <label for="role" class="form-label">Role</label>
+                                    <input type="text" class="form-control" id="role" name="role" value="Admin" readonly
+                                        disabled>
+                                </div>
+                            </form>
+                            <!-- End Profile Card -->
+
+                            <!-- Start Profile Card -->
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form id="profileForm">
+                                            <div class="mb-3">
+                                                <img src="/assets/user.png" alt="Profile" width="150" height="150"
+                                                    class="rounded-circle me-2 bor">
+                                            </div>
+
+                                            <!-- Profile Picture -->
+                                            <div class="mb-3">
+                                                <label for="profilePicture" class="form-label">Profile Picture</label>
+                                                <input type="file" class="form-control" id="profilePicture"
+                                                    accept="image/*">
+                                            </div>
+
+                                            <div class="row">
+                                                <!-- First Name -->
+                                                <div class="col-4 mb-3">
+                                                    <label for="firstName" class="form-label">First Name</label>
+                                                    <input type="text" class="form-control" id="firstName"
+                                                        name="first_name" value="John" required>
+                                                </div>
+
+                                                <!-- Middle Name -->
+                                                <div class="col-4 mb-3">
+                                                    <label for="middleName" class="form-label">Middle Name</label>
+                                                    <input type="text" class="form-control" id="middleName"
+                                                        name="middle_name" value="Santos">
+                                                </div>
+
+                                                <!-- Last Name -->
+                                                <div class="col-4 mb-3">
+                                                    <label for="lastName" class="form-label">Last Name</label>
+                                                    <input type="text" class="form-control" id="lastName"
+                                                        name="last_name" value="Smith" required>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="row">
+                                                <!-- Contact Number -->
+                                                <div class="col-6 mb-3">
+                                                    <label for="contactNumber" class="form-label">Contact Number</label>
+                                                    <input type="text" class="form-control" id="contactNumber"
+                                                        name="contact_number" value="9123456789" required>
+                                                </div>
+
+                                                <!-- Email -->
+                                                <div class="col-6 mb-3">
+                                                    <label for="email" class="form-label">Email</label>
+                                                    <input type="email" class="form-control" id="email" name="email"
+                                                        value="john@example.com" required>
+                                                </div>
+                                            </div>
+
+                                            <!-- Username -->
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label">Username</label>
+                                                <input type="text" class="form-control" id="username" name="username"
+                                                    value="john_smith" required>
+                                            </div>
+
+                                            <!-- Password -->
+                                            <div class="mb-3">
+                                                <label for="password" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="password"
+                                                    name="password" required>
+                                            </div>
+
+                                            <!-- Password -->
+                                            <div class="mb-3">
+                                                <label for="confirm_password" class="form-label">Confirm
+                                                    Password</label>
+                                                <input type="password" class="form-control" id="confirm_password"
+                                                    name="confirm_password" required>
+                                            </div>
+
+                                            <!-- Display Name -->
+                                            <div class="mb-3">
+                                                <label for="displayName" class="form-label">Display Name</label>
+                                                <input type="text" class="form-control" id="displayName"
+                                                    name="display_name" value="User" required>
+                                            </div>
+
+                                            <!-- Role (Cannot be edited) -->
+                                            <div class="mb-3">
+                                                <label for="role" class="form-label">Role</label>
+                                                <input type="text" class="form-control" id="role" name="role"
+                                                    value="Admin" readonly>
+                                            </div>
+
+
+                                            <!-- Submit Button -->
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Profile Card -->
+
+
+
+
+                            <!-- Start Delete Confirmation Modal -->
+                            <div class="modal fade" id="deleteRoleModal" tabindex="-1"
+                                aria-labelledby="deleteRoleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteRoleModalLabel">Confirm Delete Role</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+
+                                        <!-- Modal Body -->
+                                        <div class="modal-body">
+                                            <p>Are you sure you want to delete the role <strong
+                                                    id="deleteRoleName">Admin</strong>? This action cannot be undone,
+                                                and users assigned to this role will need to be reassigned.</p>
+                                        </div>
+
+                                        <!-- Modal Footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" id="confirmDeleteRoleBtn"
+                                                class="btn btn-danger">Delete User</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Delete Confirmation Modal -->
+
+                        </div>
+                    </div>
+                </main>
+                <footer aria-label="Page Footer" class="flex-shrink-0 p-3">© 2024 · Phishshield</footer>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#example').DataTable({
+            // pagingType: 'input',
+            // pageLength: 5,
+            language: {
+                oPaginate: {
+                    sNext: '<i class="bi bi-chevron-right"></i>',
+                    sPrevious: '<i class="bi bi-chevron-left"></i>',
+                    sFirst: '<i class="bi bi-chevron-double-left"></i>',
+                    sLast: '<i class="bi bi-chevron-double-right"></i>'
+                }
+            }
+        })
+        // new DataTable('#example');
+
+        tippy('[data-tippy-content]');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/style/style.css">
+    <style>
+        .admin-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        #sidebar {
+            background-color: #fdfdfd;
+            flex-shrink: 0;
+            width: 200px;
+        }
+
+        #sidebar .logo {
+            display: block;
+            margin: 20px auto;
+        }
+
+        #sidebar a {
+            font-family: 'Roboto';
+            font-size: inherit;
+            display: block;
+            text-decoration: none;
+            padding: 0px 25px;
+            margin-bottom: 20px;
+            border: 3px solid transparent;
+            transition: 0.3s;
+            color: var(--gray-color);
+        }
+
+        #sidebar a svg {
+            margin-bottom: -4px;
+        }
+
+        #sidebar .active a,
+        #sidebar a:hover {
+            color: var(--primary-color);
+            border-right-color: var(--primary-color);
+        }
+
+        #content {
+            background-color: #F0F2F9;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #content header,
+        #content footer {
+            padding: 25px;
+            flex-shrink: 0;
+        }
+
+        #content main {
+            padding: 0 25px;
+            flex: 1;
+        }
+
+        #content header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .user {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .user .user-profile {
+            background-color: #fff;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            outline: 2px solid #000;
+        }
+
+        .user-dropdown-options {
+            box-shadow: 0 6px 6px #00000023;
+            padding: 10px 0;
+            background-color: #fff;
+            position: absolute;
+            top: calc(100% + 5px);
+            width: 100%;
+        }
+
+        .user-dropdown-options a {
+            display: block;
+            padding: 5px 20px;
+            text-decoration: none;
+        }
+
+        .user-dropdown-options a:hover {
+            background-color: var(--white-smoke-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-wrapper">
+        <div id="sidebar">
+            <nav aria-label="Sidebar Navigation">
+                <img height="100" width="114" class="logo" src="/assets/logo.png" alt="Logo">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Reports</a>
+                    </li>
+                    <li>
+                        <a href="#">Users</a>
+                    </li>
+                    <li>
+                        <a href="#">Roles</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="content">
+            <header aria-label="Page Header">
+                <h1>Dashboard</h1>
+                <div class="user">
+                    <img height="25" width="25" class="user-profile" src="/assets/user.png" alt="User">
+                    <span>Hello, User</span>
+                    <div class="user-dropdown-options hide">
+                        <a href="#">Profile</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </header>
+            <main>
+                Content
+            </main>
+            <footer aria-label="Page Footer">© 2024 · Phishshield</footer>
+        </div>
+    </div>
+</body>
+
+</html>
